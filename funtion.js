@@ -83,11 +83,17 @@ document.addEventListener("DOMContentLoaded", function () {
         let opcion1 = imgElegidaId[0];
         let opcion2 = imgElegidaId[1];
         
+        
         if(imgElegida[0] === imgElegida[1]){    
             alert("Son iguales las imagenes");
             todasLasImg[opcion1].setAttribute("src", "img/chulo-naranja.png");
             todasLasImg[opcion2].setAttribute("src", "img/chulo-naranja.png");
-            conteo.push(imgElegida++);
+            
+            if(imgElegida[0]!=imgElegida[0] || imgElegida[1]!=imgElegida[1]){
+                conteo.push(imgElegida);
+            }
+
+           
 
         }else{
             alert("No son iguales ome animal");
@@ -95,12 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
             todasLasImg[opcion2].setAttribute("src", "img/chc-interrogante.png");           
         }
 
-        function resetTablero(){
-            let todasLasImg = document.querySelectorAll("img");
-            let opcion3 = imgElegidaId[0]
-            todasLasImg[opcion3].setAttribute("src", "img/chc-interrogante.png");
-
-        }
+  
         
         //Se llena de nuevo 
         imgElegida = [];
@@ -108,9 +109,10 @@ document.addEventListener("DOMContentLoaded", function () {
         aciertos.textContent = conteo.length;
 
         if(conteo.length === 6){
-            aciertos.textContent = "Ganaste";
-            resetTablero()
-
+            alert("Ganaste");
+            aciertos.textContent = "0";
+            conteo.length = 0;
+            location.reload();
         }
     }
 
