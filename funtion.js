@@ -49,7 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //funcion para colocar las imagenes en el html
     function crearTablero() {
-        for (let i = 0; i < images.length; i++) {
+
+        //images.sort(()=>0.5 - Math.random());
+
+        let i = 0;
+
+        for (i; i < images.length; i++) {
             var img = document.createElement("img");
             img.setAttribute("data-id", i);
             img.setAttribute("src", "img/chc-interrogante.png");
@@ -82,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Son iguales las imagenes");
             todasLasImg[opcion1].setAttribute("src", "img/chulo-naranja.png");
             todasLasImg[opcion2].setAttribute("src", "img/chulo-naranja.png");
-            conteo.push(imgElegida);
+            conteo.push(imgElegida++);
 
         }else{
             alert("No son iguales ome animal");
@@ -90,13 +95,22 @@ document.addEventListener("DOMContentLoaded", function () {
             todasLasImg[opcion2].setAttribute("src", "img/chc-interrogante.png");           
         }
 
+        function resetTablero(){
+            let todasLasImg = document.querySelectorAll("img");
+            let opcion3 = imgElegidaId[0]
+            todasLasImg[opcion3].setAttribute("src", "img/chc-interrogante.png");
+
+        }
+        
         //Se llena de nuevo 
         imgElegida = [];
         imgElegidaId = [];
         aciertos.textContent = conteo.length;
 
         if(conteo.length === 6){
-            aciertos.textContent = "Ganaste"
+            aciertos.textContent = "Ganaste";
+            resetTablero()
+
         }
     }
 
