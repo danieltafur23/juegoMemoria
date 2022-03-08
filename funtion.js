@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         name: "corazon"
     }
     ]
+
     //Seleccionar tablero de HTML
     let tablero = document.querySelector(".tablero")
     let imgElegida = [];
@@ -84,11 +85,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let opcion2 = imgElegidaId[1];
         
         
-        if(imgElegida[0] === imgElegida[1]){    
+        if(imgElegida[0] === imgElegida[1] && imgElegidaId[0]!==imgElegidaId[1] ){    
             alert("Son iguales las imagenes");
             todasLasImg[opcion1].setAttribute("src", "img/chulo-naranja.png");
             todasLasImg[opcion2].setAttribute("src", "img/chulo-naranja.png");
             conteo.push(imgElegida);
+            todasLasImg[opcion1].removeEventListener("click", descubrirImagen);
+            todasLasImg[opcion2].removeEventListener("click", descubrirImagen);
 
 
         }else{
