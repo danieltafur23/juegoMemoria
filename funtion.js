@@ -88,12 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Son iguales las imagenes");
             todasLasImg[opcion1].setAttribute("src", "img/chulo-naranja.png");
             todasLasImg[opcion2].setAttribute("src", "img/chulo-naranja.png");
-            
-            if(imgElegida[0]!=imgElegida[0] || imgElegida[1]!=imgElegida[1]){
-                conteo.push(imgElegida);
-            }
+            conteo.push(imgElegida);
 
-           
 
         }else{
             alert("No son iguales ome animal");
